@@ -177,7 +177,7 @@ st.sidebar.write(account.address)
 # Call `get_balance` function and pass it your account address
 # Write the returned ether balance to the sidebar
 # YOUR CODE HERE
-ether = get_balance(account.address)
+ether = get_balance(w3,account.address)
 
 # Disply the balance of ether in the account
 st.sidebar.markdown("## Customer Balance of Ether")
@@ -304,7 +304,6 @@ st.sidebar.write(wage)
 
 
 if st.sidebar.button("Send Transaction"):
-
     # @TODO
     # Call the `send_transaction` function and pass it 3 parameters:
     # Your `account`, the `candidate_address`, and the `wage` as parameters
@@ -312,17 +311,14 @@ if st.sidebar.button("Send Transaction"):
     # YOUR CODE HERE
     transaction_hash = send_transaction(account, candidate_address, wage)
     # YOUR CODE HERE
-
     # Markdown for the transaction hash
     st.sidebar.markdown("#### Validated Transaction Hash")
-
     # Write the returned transaction hash to the screen
     st.sidebar.write(transaction_hash)
-
     # Celebrate your successful payment
     st.balloons()
 
-# The function that starts the Streamlit application
+    # The function that starts the Streamlit application
 # Writes KryptoJobs2Go candidates to the Streamlit page
 get_people()
 
